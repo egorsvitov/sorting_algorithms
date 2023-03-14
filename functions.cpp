@@ -2,7 +2,7 @@
 #include <vector>
 #include <numeric>
 
-void make_a_frame(int* array, int array_size, int max_elem) {
+void make_a_frame(int* array, int array_size, int max_elem, int number_of_frame) {
     int width = 1920 / array_size;
     int height = 1080 / max_elem;
 
@@ -14,7 +14,7 @@ void make_a_frame(int* array, int array_size, int max_elem) {
         column.create(width, array[i]*height, column_color);
         background.copy(column, width*i, (1080 - array[i]*height));
     }
-    background.saveToFile("test.png");
+    background.saveToFile("frame_" + std::to_string(number_of_frame) + ".png");
 }
 
 int* make_shuffled_array(int size) {
